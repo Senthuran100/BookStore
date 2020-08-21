@@ -27,7 +27,9 @@ class AddBook extends React.Component {
             price : this.state.price,
             language : this.state.language
         }
-        axios.post("http://localhost:8081/rest/books",book)
+        const accesstoken= localStorage.getItem("accessToken");
+        const header = { headers: {'Authorization': 'Bearer ' + accesstoken}};
+        axios.post("https://localhost:8243/book/1.0.0/books",book,header)
         .then(response =>{
             if(response.data != null){
                this.setState({"show":true});
@@ -50,6 +52,13 @@ class AddBook extends React.Component {
         
         const {title, author, coverPhotoURL, isbnNumber, price, language  } = this.state;
         return (
+            !this.props.auth.isAuthenticated()?(
+                <Card className={"border border-dark text-center bg-dark text-white"}>
+                    <Card.Header>
+                        <h2>Please Sign in to View the Book List</h2>
+                    </Card.Header>
+                </Card>
+            ):(
             <div>
              <div style={{"display":this.state.show ? "block":"none"}}>
                 <ToastMessage children={{show:this.state.show, message : "Book Saved Successfully"}}/>
@@ -107,7 +116,7 @@ class AddBook extends React.Component {
                 </Form>
             </Card>  
             </div>  
-
+            )
            
         );
     }

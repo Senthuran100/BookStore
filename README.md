@@ -1,3 +1,24 @@
+# BOOK STORE
+
+This is Book Store application which is used to display the books that are in the book store. This is a demo application where the backend is built using the
+Spring Boot and Front end is implemented in React.
+
+Backend Endpoints are exposed through WSO2 API Manager. <a href="https://docs.wso2.com/display/AM260/Key+Concepts">WSO2 API Manager</a> is used to secure the endpoints and throttle out the request. Implicit grant type is used to obtain access tokens
+from the frontend application to access the APIs.
+
+Please refer this <a href="https://docs.wso2.com/display/AM260/Implicit+Grant">documentation</a> to get an understanding of how Implicit grant type is working in WSO2 API Manager. Spring boot rest endpoints
+are exposed through the API Manager. Refer this <a href="swagger.json">swagger</a> file to create an API in WSO2 API Manager.
+<img src="src/main/webapp/reactjs/public/API.png" alt="Book API in Publisher"/>
+
+<img src="src/main/webapp/reactjs/public/Resource.png" alt="Book API resources in Publisher"/>
+
+After getting this project create an API using the WSO2 API Manager and then start the backend application and use this(npm start) command to start the Frontend React Application.
+<img src="src/main/webapp/reactjs/public/welcome.png" alt="Welcome Page"/>
+<img src="src/main/webapp/reactjs/public/login.png" alt="WSO2 Login "/>
+<img src="src/main/webapp/reactjs/public/add_book.png" alt="Adding Books"/>
+<img src="src/main/webapp/reactjs/public/add_book.png" alt="Viewing Books"/>
+
+
 # GET
 	http://localhost:8081/rest/books
 
@@ -55,3 +76,9 @@
 	    "price": 498,
 	    "language": "English"
 	}
+
+
+# Please Contribute to this Application by implementing below extra features.
+* Move the database from H2 to MySQL or any other production database.
+* Have a separate view for updating the book information and deleting the book.
+* Implement an Authorization Code grant type to access the Book APIs.

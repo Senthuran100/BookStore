@@ -1,0 +1,31 @@
+https://localhost:8243/authorize?response_type=code&client_id=B3KkILjkPLsmXhqCiY5bXHlEozMa&scope=PRODUCTION&redirect_uri=http://localhost:3000/callback
+
+
+https://localhost:8243/token?grant_type=authorization_code&code=e0f23895-dbae-3be0-9966-b1c721308778&redirect_uri=http://localhost:3000/callback
+
+
+Authorization: Basic QjNLa0lMamtQTHNtWGhxQ2lZNWJYSGxFb3pNYTpFUG5ubkR1Zld6dENubmVmVE9hNll5Tm9jMFVh
+
+
+
+ curl -X POST -H "Authorization: Basic QjNLa0lMamtQTHNtWGhxQ2lZNWJYSGxFb3pNYTpFUG5ubkR1Zld6dENubmVmVE9hNll5Tm9jMFVh" https://localhost:8243/token
+
+
+
+curl -k -d "grant_type=authorization_code&code=73937cb5-2c31-3ff0-ae80-657f3e0b2613&redirect_uri=http://localhost:3000/callback" -H "Authorization: Basic QjNLa0lMamtQTHNtWGhxQ2lZNWJYSGxFb3pNYTpFUG5ubkR1Zld6dENubmVmVE9hNll5Tm9jMFVh" https://192.168.1.2:8243/token
+
+
+
+?grant_type=authorization_code&code=86e3c8b7-9fe4-30e5-867e-ae6a6daa2399&redirect_uri=http://localhost:3000
+
+
+https://localhost:8243/token?response_type=code&code=2947f3a5-418a-3a78-8f13-e6202830f0ae&redirect_uri=http://localhost:3000/callback&client_id=B3KkILjkPLsmXhqCiY5bXHlEozMa&client_secret=EPnnnDufWztCnnefTOa6YyNoc0Ua
+
+
+
+curl -k -d "grant_type=password&username=Username&password=Password" -H "Authorization: Basic QjNLa0lMamtQTHNtWGhxQ2lZNWJYSGxFb3pNYTpFUG5ubkR1Zld6dENubmVmVE9hNll5Tm9jMFVh" \
+	      https://192.168.1.2:8243/token
+
+
+
+curl -k -X POST "https://localhost:8243/token/1.0.0/token"  -d "grant_type=authorization_code&code=79658796-2b5e-3d6c-93af-2eb580fa129e&redirect_uri=http://localhost:3000/callback" -H "Authorization: Basic QjNLa0lMamtQTHNtWGhxQ2lZNWJYSGxFb3pNYTpFUG5ubkR1Zld6dENubmVmVE9hNll5Tm9jMFVh"

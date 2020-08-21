@@ -8,19 +8,28 @@ class BookList extends React.Component {
         this.state={
             books:[]
         };
+        const { isAuthenticated } = props.auth;
     }
 
     componentDidMount(){
-        axios.get("http://localhost:8081/rest/books")
+        const accesstoken= localStorage.getItem("accessToken");
+        const headers = { 'Authorization': 'Bearer '+accesstoken};
+        axios.get("https://localhost:8243/book/1.0.0/books",{ headers })
         .then(response => response.data)
         .then((data)=> {
             this.setState({books:data});
             
         });
-        
     }
     render() {
         return (
+            !this.props.auth.isAuthenticated()?(
+                <Card className={"border border-dark text-center bg-dark text-white"}>
+                    <Card.Header>
+                        <h2>Please Sign in to View the Add Book List</h2>
+                    </Card.Header>
+                </Card>
+            ):(
             <Card className={"border border-dark bg-dark text-white"}>
                 <Card.Header>
                     Book List
@@ -62,6 +71,7 @@ class BookList extends React.Component {
                     </Table>
                 </Card.Body>
             </Card>
+            )
         );
     }
 
